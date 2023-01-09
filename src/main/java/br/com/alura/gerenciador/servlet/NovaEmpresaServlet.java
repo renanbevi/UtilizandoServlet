@@ -17,14 +17,29 @@ public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 		
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("cadastrando nova empresa");
 		
-		String nomeEmpresa = request.getParameter("nome");//lendo o parametro 
-		String cnpjEmpresa = request.getParameter("cnpj");
+		String nomeLogin = request.getParameter("usuario");//lendo o parametro 
+		String senhaLogin = request.getParameter("password");
+		String nomeEmpresa = request.getParameter("empresa");
 		
+		Acessos acessoLogin = new Acessos();
+		acessoLogin.setAdmin(nomeLogin);
+		
+		Acessos acessoSenha = new Acessos();
+		acessoSenha.setSenha(senhaLogin);
+		
+		Empresa empresa = new Empresa();
+		empresa.setNome(nomeEmpresa);
+		
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
+		banco.adicionaAcessos(acessoLogin, acessoSenha);
+					
 		PrintWriter out = response.getWriter();
-		out.println("<html><body><h1> Empresa " + nomeEmpresa + " CNPJ " + cnpjEmpresa +" cadastrada com sucesso</h1> </body></html>");
-	}
-
+		out.println("<html><body><h1> Login efetuado com sucesso ! Empresa " + nomeEmpresa + " </h1> </body></html>");
+	
+		
+}
 }
