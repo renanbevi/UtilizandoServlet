@@ -3,6 +3,7 @@ package br.com.alura.gerenciador.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,9 +38,11 @@ public class NovaEmpresaServlet extends HttpServlet {
 		banco.adiciona(empresa);
 		banco.adicionaAcessos(acessoLogin, acessoSenha);
 					
-		PrintWriter out = response.getWriter();
-		out.println("<html><body><h1> Login efetuado com sucesso ! Empresa " + nomeEmpresa + " </h1> </body></html>");
-	
+		//Chamar o JSP que possui todo o código de visualização novaEmpresaCriada.jsp
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");  //usar o despachador de requisição
+		request.setAttribute("empresa", empresa.getNome()); //Joga o atributo dentro da requisição 
+		rd.forward(request, response); //leva os objetos e chama o JSP
 		
 }
 }
