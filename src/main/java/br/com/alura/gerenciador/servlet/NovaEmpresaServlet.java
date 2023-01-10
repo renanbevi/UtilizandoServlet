@@ -1,7 +1,7 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,28 +21,27 @@ public class NovaEmpresaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("cadastrando nova empresa");
 		
-		String nomeLogin = request.getParameter("usuario");//lendo o parametro 
-		String senhaLogin = request.getParameter("password");
+	
 		String nomeEmpresa = request.getParameter("empresa");
-		
-		Acessos acessoLogin = new Acessos();
-		acessoLogin.setAdmin(nomeLogin);
-		
-		Acessos acessoSenha = new Acessos();
-		acessoSenha.setSenha(senhaLogin);
-		
+		String cnpjEmpresa = request.getParameter("cnpj");
+	
+			
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
+		empresa.setCnpj(cnpjEmpresa);
+		
 		
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
-		banco.adicionaAcessos(acessoLogin, acessoSenha);
+	
 					
 		//Chamar o JSP que possui todo o código de visualização novaEmpresaCriada.jsp
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");  //usar o despachador de requisição
 		request.setAttribute("empresa", empresa.getNome()); //Joga o atributo dentro da requisição 
+		request.setAttribute("cnpj", empresa.getCnpj());
 		rd.forward(request, response); //leva os objetos e chama o JSP
+		
 		
 }
 }

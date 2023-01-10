@@ -4,6 +4,7 @@ public class Empresa {
 
 	private Integer id;
 	private String nome;
+	private String cnpj;
 
 	
 	public Integer getId() {
@@ -22,4 +23,13 @@ public class Empresa {
 		this.nome = nome;
 	}
 
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	
 }

@@ -10,10 +10,8 @@
 	<form action="/gerenciador/novaEmpresa" method="post"> 
 		<label> Empresa:</label> 
 			<input type="text" name="empresa" />
-		<label> Login:</label> 
-			<input type="text" name="usuario" />
-		<label> Senha:</label>
-			<input type="password" name="password" />
+		<label> CNPJ:</label> 
+			<input type="text" name="cnpj" />
 						
 			<input type="submit" />
 	</form>

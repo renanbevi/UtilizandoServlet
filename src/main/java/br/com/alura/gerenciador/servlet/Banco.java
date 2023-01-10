@@ -6,7 +6,8 @@ import java.util.List;
 public class Banco {
 	
 	private static List<Empresa> listaEmpresas = new ArrayList<>();
-	private static List<Acessos> ListaAcessos = new ArrayList<>();
+	private static List<Empresa> listaCnpj = new ArrayList<>();
+	
 
 	public void adiciona(Empresa empresa) {  //criação de um banco para guardar as informações das empresas em uma lista
 		Banco.listaEmpresas.add(empresa);
@@ -17,16 +18,13 @@ public class Banco {
 		return Banco.listaEmpresas;
 	}
 
-	public void adicionaAcessos(Acessos nomelogin, Acessos senhaLogin) {
-		Banco.ListaAcessos.add(nomelogin);
-		Banco.ListaAcessos.add(senhaLogin);
-		
-	
+	public void adicionaCnpj(Empresa cnpj) {
+		Banco.listaCnpj.add(cnpj);
 	}
 	
-	public List<Acessos> getAcessos(){
-		return Banco.ListaAcessos;
+	public List<Empresa> getCnpj() {
+		return Banco.listaCnpj;
 	}
-
+	
 	
 }

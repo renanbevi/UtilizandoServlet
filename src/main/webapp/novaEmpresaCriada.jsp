@@ -1,16 +1,11 @@
-<%
 
-//scriptlet
-String nomeEmpresa = (String)request.getAttribute("empresa");
-System.out.println(nomeEmpresa);
-
-%>
 
 <html>
-<body>
-<h1> Login efetuado com sucesso ! Empresa " <%= nomeEmpresa %> " </h1> 
+	<body>
+		
+		<h1> Login efetuado com sucesso ! Empresa  ${ empresa } CNPJ ${ cnpj } </h1> 
 
-</body>
+	</body>
 
 </html>
 
