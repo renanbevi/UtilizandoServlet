@@ -1,10 +1,13 @@
 package br.com.alura.gerenciador.servlet;
 
+import java.util.Date;
+
 public class Empresa {
 
 	private Integer id;
 	private String nome;
-	private String cnpj;
+	private String cnpjEmpresa;
+	private Date dataAbertura = new Date();
 
 	
 	public Integer getId() {
@@ -24,12 +27,21 @@ public class Empresa {
 	}
 
 	public String getCnpj() {
-		return cnpj;
+		return cnpjEmpresa;
 	}
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCnpj(String cnpjEmpresa) {
+		this.cnpjEmpresa = cnpjEmpresa;
 	}
+
+	public Date getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(Date dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+	
 
 	
 }

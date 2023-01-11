@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
 <%@ page import="java.util.List, br.com.alura.gerenciador.servlet.Empresa"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="d" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
  
 <!DOCTYPE html>
 	
@@ -15,13 +15,10 @@
 		
 		<ul>
 			<c:forEach items="${empresas}" var="empresa">	 
-				<li> ${empresa.nome} </li>
+				
+				<li> Empresa:  ${empresa.nome} - CNPJ: ${empresa.cnpj} - Data de Abertura: <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/YYYY"/></li>
 			</c:forEach>	
-			
-			<d:forEach items="${cnpj}" var="cnpj">
-			<li> ${empresa.cnpj} </li>
-			</d:forEach>
-			
+									
 		</ul>
 		
 		 </body>
