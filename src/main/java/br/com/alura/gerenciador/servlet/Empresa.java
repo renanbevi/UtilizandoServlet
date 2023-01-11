@@ -10,6 +10,10 @@ public class Empresa {
 	private Date dataAbertura = new Date();
 
 	
+	static {
+		
+	}
+	
 	public Integer getId() {
 		return id;
 	}
