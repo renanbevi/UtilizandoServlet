@@ -51,15 +51,22 @@ public class Banco {
 		
 		while (it.hasNext()) { //tem o proximo elemento?
 			Empresa emp = it.next(); // me dá o proximo elemento
-			if(emp.getId()== id) {
+			if(emp.getId() == id) {
 				it.remove();
 			}
 			
 		}
-
 	}
+		public Empresa buscaEmpresaPelaId(Integer id) {
+			for (Empresa empresa : listaEmpresas) {
+				if(empresa.getId() == id) {
+					return empresa;
+				}
+			}	
+			return null;
 		
+				
+		}
+	
 }
-	
-	
 
