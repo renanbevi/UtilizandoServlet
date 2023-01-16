@@ -1,24 +1,18 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acao;
 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.servlet.modelo.Banco;
 import br.com.alura.gerenciador.servlet.modelo.Cliente;
 
-
-//@WebServlet("/mostrarCliente")
-public class mostraClienteServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
+public class MostraCliente {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId); // recebendo o parametro id e transformando a String em INT
@@ -32,8 +26,8 @@ public class mostraClienteServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/formAlteraCliente.jsp");
 		rd.forward(request, response);
 		
-		response.sendRedirect("entrada?acao=listaClientes");
-		
+		return "redirect:entrada?acao=listaClientes";
 	}
+	
 
 }

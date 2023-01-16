@@ -1,8 +1,6 @@
 package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,15 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.servlet.modelo.Banco;
+import br.com.alura.gerenciador.servlet.modelo.Cliente;
+
 /**
  * Servlet implementation class ListaempresasServlet
  */
-@WebServlet("/listaEmpresas")
-public class ListaempresasServlet extends HttpServlet {
+//@WebServlet("/listaClientes")
+public class ListaClientesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 
-    public ListaempresasServlet() {
+    public ListaClientesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,17 +30,12 @@ public class ListaempresasServlet extends HttpServlet {
 			throws ServletException, IOException {
 	
 		Banco banco = new Banco();
-		List<Empresa> lista = banco.getEmpresas();
-		List<Empresa> listaCnpj = banco.getCnpj();
-	
+		List<Cliente> lista = banco.getClientes();
 		
+			
 		
-		
-		
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/NovaEmpresaLista.jsp");
-		request.setAttribute("empresas", lista);
-		request.setAttribute("cnpj", listaCnpj);
+		RequestDispatcher rd = request.getRequestDispatcher("/NovoClienteLista.jsp");
+		request.setAttribute("clientes", lista);
 		rd.forward(request, response);
 		
 	

@@ -1,5 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<c:url value="/novaEmpresa" var="linkServletNovaEmpresa"/>
+<c:url value="/entrada" var="linkServletNovoCliente"/>
 
 <!DOCTYPE html>
 <html>
@@ -10,13 +10,19 @@
 <body>
 
     
-	<form action="/gerenciador/novaEmpresa" method="post"> 
-		<label> Empresa:</label> 
-			<input type="text" name="empresa" />
-		<label> CNPJ:</label> 
-			<input type="text" name="cnpj" />
-			<label> Data Abertura:</label> 
-			<input type="text" name="data" />
+	<form action="${linkServletNovoCliente}" method="post"> 
+		<label> Cliente:</label> 
+			<input type="text" name="cliente" />
+		<label> Sexo:</label> 
+			<input type="text" name="sexo" />
+			<label> Valor cobrado:</label> 
+			<input type="text" name="valor" />
+			<label> Serviço:</label> 
+			<input type="text" name="servico" />
+			<label> Data cadastro:</label> 
+			<input id="date" type="data" name="data" />
+			<input type="hidden" name="acao" value="novoCliente" />
+			
 										
 			<input type="submit" />
 	</form>

@@ -12,48 +12,54 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.servlet.modelo.Banco;
+import br.com.alura.gerenciador.servlet.modelo.Cliente;
+
 /**
  * Servlet implementation class NovaEmpresaServlet
  */
-@WebServlet("/novaEmpresa")
-public class NovaEmpresaServlet extends HttpServlet {
+//@WebServlet("/novoCliente")
+public class NovoClienteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 		
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("cadastrando nova empresa");
+		System.out.println("cadastrando novo Cliente");
 		
 	
-		String nomeEmpresa = request.getParameter("nome");
-		String cnpjEmpresa = request.getParameter("cnpj");
-		String paramDataEmpresa = request.getParameter("data"); // recebe a informação da data do formulario
-	
-		Date dataAbertura = null;
+		String nomeCliente = request.getParameter("nome");
+		String sexoCliente = request.getParameter("sexo");
+		String paramDataMarcada = request.getParameter("data"); // recebe a informação da data do formulario
+		String valorCliente = request.getParameter("valor");
+				
+		Date dataMarcada = null;
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // sdf formata o parse da string DATA
-			dataAbertura = sdf.parse(paramDataEmpresa);
+			dataMarcada = sdf.parse(paramDataMarcada);
 		} catch (ParseException e) {
 			throw new ServletException(e);
 		}
 		
 		
-		Empresa empresa = new Empresa();
-		empresa.setNome(nomeEmpresa);
-		empresa.setCnpj(cnpjEmpresa);
-		empresa.setDataAbertura(dataAbertura);
+		Cliente cliente = new Cliente();
+		cliente.setNome(nomeCliente);
+		cliente.setSexo(sexoCliente);
+		cliente.setDataMarcada(dataMarcada);
+		cliente.setValor(valorCliente);
 		
 		
 		
 		Banco banco = new Banco();
-		banco.adiciona(empresa);
+		banco.adiciona(cliente);
 	
 					
 		//Chamar o JSP que possui todo o código de visualização novaEmpresaCriada.jsp
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");  //usar o despachador de requisição
-		request.setAttribute("empresa", empresa.getNome()); //Joga o atributo dentro da requisição 
-		request.setAttribute("cnpj", empresa.getCnpj());
-		request.setAttribute("data", empresa.getDataAbertura());
+		request.setAttribute("empresa", cliente.getNome()); //Joga o atributo dentro da requisição 
+		request.setAttribute("cnpj", cliente.getSexo());
+		request.setAttribute("data", cliente.getDataMarcada());
+		request.setAttribute("valor", cliente.getValor());
 		rd.forward(request, response); //leva os objetos e chama o JSP
 		
 		

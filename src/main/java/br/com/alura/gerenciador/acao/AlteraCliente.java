@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.acao;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -16,16 +16,13 @@ import br.com.alura.gerenciador.servlet.modelo.Cliente;
 
 
 //@WebServlet("/alteraCliente")
-public class AlteraClienteServlet extends HttpServlet {
+public class AlteraCliente  {
 	private static final long serialVersionUID = 1L;
 
 	
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-			System.out.println("Altera empresa");
-		
-		
 		String nomeCliente = request.getParameter("nome");
 		String sexoCliente = request.getParameter("sexo");
 		String paramDataMarcada = request.getParameter("data"); // recebe a informação da data do formulario
@@ -35,6 +32,8 @@ public class AlteraClienteServlet extends HttpServlet {
 		
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
+		
+		System.out.println("Ação altera empresa = "+ id);
 		
 		
 		Date dataMarcada = null;
@@ -53,9 +52,11 @@ public class AlteraClienteServlet extends HttpServlet {
 		cliente.setValor(valorCliente);
 		cliente.setServico(servicoCliente);
 		
-		response.sendRedirect("entrada?acao=listaClientes");
+		return "redirect:entrada?acao=listaClientes";
 		
-					
+		
+		
+		
 	}
 
 	
