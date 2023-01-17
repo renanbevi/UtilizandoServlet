@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.servlet.modelo.Banco;
 import br.com.alura.gerenciador.servlet.modelo.Cliente;
 
-public class NovoCliente {
+public class NovoCliente implements Acao{
 	
 			public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			System.out.println("cadastrando novo Cliente");
@@ -59,7 +59,7 @@ public class NovoCliente {
 			
 
 			
-			return "redirect:entrada?acao=listaClientes";
+			return "redirect:entrada?acao=ListaClientes";
 		}
 
 	}

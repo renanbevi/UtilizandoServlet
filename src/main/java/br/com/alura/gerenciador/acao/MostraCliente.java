@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.servlet.modelo.Banco;
 import br.com.alura.gerenciador.servlet.modelo.Cliente;
 
-public class MostraCliente {
+public class MostraCliente implements Acao{
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -23,10 +23,9 @@ public class MostraCliente {
 		System.out.println(cliente.getNome());
 				
 		request.setAttribute("cliente", cliente);
-		RequestDispatcher rd = request.getRequestDispatcher("/formAlteraCliente.jsp");
-		rd.forward(request, response);
 		
-		return "redirect:entrada?acao=listaClientes";
+		
+		return "forward:formAlteraCliente.jsp";
 	}
 	
 

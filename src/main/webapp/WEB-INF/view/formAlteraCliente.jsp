@@ -26,7 +26,7 @@
 			<input type="text" name="data" value="<fmt:formatDate value="${cliente.dataMarcada}" pattern="dd/MM/YYYY"/>" />
 			<label> Id</label>
 			<input type="hidden" name="id" value="${cliente.id}" />	
-			<input type="hidden" name="acao" value="alteraCliente" />
+			<input type="hidden" name="acao" value="AlteraCliente" />
 				
 									
 			<input type="submit" />

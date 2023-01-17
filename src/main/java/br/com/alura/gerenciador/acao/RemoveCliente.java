@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.servlet.modelo.Banco;
 
-public class RemoveCliente {
+public class RemoveCliente implements Acao{
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -23,7 +23,7 @@ public class RemoveCliente {
 		Banco banco = new Banco();
 		banco.removeCliente(id);
 		
-		return  "redirect:entrada?acao=listaClientes";
+		return  "redirect:entrada?acao=ListaClientes";
 	}
 
 }

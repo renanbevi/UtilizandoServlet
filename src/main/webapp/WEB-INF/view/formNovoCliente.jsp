@@ -12,7 +12,7 @@
     
 	<form action="${linkServletNovoCliente}" method="post"> 
 		<label> Cliente:</label> 
-			<input type="text" name="cliente" />
+			<input type="text" name="nome" />
 		<label> Sexo:</label> 
 			<input type="text" name="sexo" />
 			<label> Valor cobrado:</label> 
@@ -21,7 +21,7 @@
 			<input type="text" name="servico" />
 			<label> Data cadastro:</label> 
 			<input id="date" type="data" name="data" />
-			<input type="hidden" name="acao" value="novoCliente" />
+			<input type="hidden" name="acao" value="NovoCliente" />
 			
 										
 			<input type="submit" />

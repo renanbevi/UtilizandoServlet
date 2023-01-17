@@ -9,7 +9,11 @@ import org.apache.jasper.tagplugins.jstl.core.ForEach;
 public class Banco {
 	
 	private static List<Cliente> listaCliente = new ArrayList<>();
+	private static List<Usuario> ListaUsuarios = new ArrayList<>();
 	private static Integer chaveSequencial = 1;
+	
+	
+	
 	static {
 		Cliente cliente = new Cliente();
 		cliente.setId(chaveSequencial++);
@@ -26,6 +30,17 @@ public class Banco {
 		cliente2.setServico("Pintura cabelo");
 		listaCliente.add(cliente);
 		listaCliente.add(cliente2);
+		
+		Usuario u1 = new Usuario();
+		u1.setLogin("renan");
+		u1.setSenha("190210");
+		
+		Usuario u2 = new Usuario();
+		u2.setLogin("juliane");
+		u2.setSenha("190210");
+		
+		ListaUsuarios.add(u1);
+		ListaUsuarios.add(u2);
 		
 	}
 	
@@ -64,6 +79,17 @@ public class Banco {
 			return null;
 		
 				
+		}
+
+		public Usuario existeUsuario(String login, String senha) {
+			
+			for(Usuario usuario : ListaUsuarios) {
+				if(usuario.ehIgual(login, senha)) {
+					return usuario;
+				}
+			}
+			
+			return null;
 		}
 	
 }

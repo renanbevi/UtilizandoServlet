@@ -18,8 +18,8 @@
 				
 				<li> 
 					Cliente:  ${cliente.nome} - Sexo: ${cliente.sexo} - Valor: ${cliente.valor} - Serviço: ${cliente.servico} - Data de cadastro: <fmt:formatDate value="${cliente.dataMarcada}" pattern="dd/MM/YYYY"/>
-				<a href="/gerenciador/entrada?acao=mostraCliente&id=${cliente.id}">Editar</a>
-				<a href="/gerenciador/entrada?acao=removeCliente&id=${cliente.id}">Remover</a>
+				<a href="/gerenciador/entrada?acao=MostraCliente&id=${cliente.id}">Editar</a>
+				<a href="/gerenciador/entrada?acao=RemoveCliente&id=${cliente.id}">Remover</a>
 				</li>
 			</c:forEach>	
 									

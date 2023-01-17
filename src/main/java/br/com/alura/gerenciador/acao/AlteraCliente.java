@@ -16,7 +16,7 @@ import br.com.alura.gerenciador.servlet.modelo.Cliente;
 
 
 //@WebServlet("/alteraCliente")
-public class AlteraCliente  {
+public class AlteraCliente implements Acao {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -52,7 +52,7 @@ public class AlteraCliente  {
 		cliente.setValor(valorCliente);
 		cliente.setServico(servicoCliente);
 		
-		return "redirect:entrada?acao=listaClientes";
+		return "redirect:entrada?acao=ListaClientes";
 		
 		
 		
