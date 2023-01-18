@@ -16,11 +16,6 @@ public class ListaClientes  implements Acao{
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession sessao = request.getSession();
-		if(sessao.getAttribute("usuarioLogado") == null) {  //chamando a sessão que é gerada no tomcat com o ID do usuário e verifica se for vazio não fez login 
-																			
-			return "redirect:entrada?acao=LoginForm";       //volta para a tela de login sempre que for null
-		}
 		
 		
 		System.out.println("listando Cliente");
@@ -29,7 +24,9 @@ public class ListaClientes  implements Acao{
 		
 		
 		request.setAttribute("clientes", lista);
-	
+		
+		
+			
 		
 		return "forward:NovoClienteLista.jsp";
 		
