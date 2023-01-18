@@ -10,6 +10,15 @@
 		<title> Java Standard Taglibs</title>
 	</head>
 		<body>
+			<c:import url="LogoutParcial.jsp"/>
+		<br>
+		<br>
+		<br>
+		<br>
+		Usuário logado: ${usuarioLogado.login}
+		<br>
+		<br>
+		
 	Lista de empresas </br>
 		
 		

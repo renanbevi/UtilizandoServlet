@@ -14,7 +14,6 @@ public class LoginForm implements Acao {
 		
 		
 		
-		
 		return "forward:formLogin.jsp";  //Chamando o LoginForm ele chamará o FormLogin.jsp 
 	}
 

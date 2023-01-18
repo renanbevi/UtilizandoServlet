@@ -10,7 +10,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<c:import url="LogoutParcial.jsp"/>
+<br>
+<br>
     
 	<form action="${linkServletNovoCliente}" method="post"> 
 	

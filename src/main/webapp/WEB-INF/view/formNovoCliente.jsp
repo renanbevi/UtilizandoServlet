@@ -7,7 +7,10 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<body>
+<body>s
+<c:import url="LogoutParcial.jsp"/>
+<br>
+<br>
 
     
 	<form action="${linkServletNovoCliente}" method="post"> 
