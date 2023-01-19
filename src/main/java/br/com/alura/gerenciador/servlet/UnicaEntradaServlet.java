@@ -30,14 +30,14 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 		
 		String paramAcao = request.getParameter("acao");
-		HttpSession sessao = request.getSession();
-		boolean usuarioNaoEstaLogado = (sessao.getAttribute("usuarioLogado") == null);
-		boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));  //protege as paginas e não deixa acessar sem o login
-		if(ehUmaAcaoProtegida && usuarioNaoEstaLogado) {  //chamando a sessão que é gerada no tomcat com o ID do usuário e verifica se for vazio não fez login 
+		//HttpSession sessao = request.getSession();
+		//boolean usuarioNaoEstaLogado = (sessao.getAttribute("usuarioLogado") == null);
+		//boolean ehUmaAcaoProtegida = !(paramAcao.equals("Login") || paramAcao.equals("LoginForm"));  //protege as paginas e não deixa acessar sem o login
+		//if(ehUmaAcaoProtegida && usuarioNaoEstaLogado) {  //chamando a sessão que é gerada no tomcat com o ID do usuário e verifica se for vazio não fez login 
 																			
-			response.sendRedirect("entrada?acao=LoginForm");       //volta para a tela de login sempre que for null
-			return;
-		}
+			//response.sendRedirect("entrada?acao=LoginForm");       //volta para a tela de login sempre que for null
+			//return;
+		//}
 		
 		
 		
